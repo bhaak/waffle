@@ -19,12 +19,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
+import org.apache.coyote.tomcat5.CoyoteRequest;
 
 /**
  * @author dblock[at]dblock[dot]org
  */
-public class SimpleHttpRequest extends Request {
+public class SimpleHttpRequest extends CoyoteRequest {
 
 	private static int _remotePort_s = 0;
 

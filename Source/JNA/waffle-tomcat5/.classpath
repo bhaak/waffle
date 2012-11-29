@@ -11,8 +11,8 @@
 	<classpathentry kind="lib" path="/thirdparty/_lib/jar/net.java.dev.jna/3.5.0/platform-3.5.0.jar"/>
 	<classpathentry kind="lib" path="/thirdparty/_lib/jar/org.slf4j/1.7.2/jcl-over-slf4j-1.7.2.jar"/>
 	<classpathentry kind="lib" path="/thirdparty/_lib/jar/org.slf4j/1.7.2/slf4j-api-1.7.2.jar"/>
-	<classpathentry kind="lib" path="/thirdparty/tomcat/5.5.36/catalina-5.5.36.jar"/>
-	<classpathentry kind="lib" path="/thirdparty/tomcat/5.5.36/servlet-api-5.5.36.jar"/>
-	<classpathentry kind="lib" path="/thirdparty/tomcat/5.5.36/tomcat-util-5.5.36.jar"/>
+	<classpathentry kind="lib" path="/thirdparty/tomcat/5.0.30/catalina-5.0.30.jar"/>
+	<classpathentry kind="lib" path="/thirdparty/tomcat/5.0.30/servlet-api-5.0.30.jar"/>
+	<classpathentry kind="lib" path="/thirdparty/tomcat/5.0.30/tomcat-util-5.0.30.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

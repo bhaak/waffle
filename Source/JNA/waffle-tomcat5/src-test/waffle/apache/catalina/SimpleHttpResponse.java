@@ -18,12 +18,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.catalina.connector.Response;
+import org.apache.coyote.tomcat5.CoyoteResponse;
 
 /**
  * @author dblock[at]dblock[dot]org
  */
-public class SimpleHttpResponse extends Response {
+public class SimpleHttpResponse extends CoyoteResponse {
 	private int _status = 500;
 	private Map<String, List<String>> _headers = new HashMap<String, List<String>>();
 

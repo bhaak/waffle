@@ -18,7 +18,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.authenticator.AuthenticatorBase;
-import org.apache.catalina.connector.Response;
+import org.apache.coyote.tomcat5.CoyoteResponse;
 import org.slf4j.Logger;
 
 import waffle.windows.auth.IWindowsAuthProvider;
@@ -127,7 +127,7 @@ abstract class WaffleAuthenticatorBase extends AuthenticatorBase {
 	 * @param response
 	 *            HTTP Response
 	 */
-	protected void sendUnauthorized(Response response) {
+	protected void sendUnauthorized(CoyoteResponse response) {
 		try {
 			response.addHeader("WWW-Authenticate", "Negotiate");
 			response.addHeader("WWW-Authenticate", "NTLM");

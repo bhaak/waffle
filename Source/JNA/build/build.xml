@@ -2,9 +2,11 @@
 <project name="waffle-build" default="build" basedir=".">
 	<property file="${basedir}/../../Version/Version.properties" />
 	<import file="common.xml" />
+<!--
 	<fail message="Missing project.jar definition" unless="project.jar" />
 	<fail message="Missing project.version" unless="product.version" />
-	<property name="waffle.version" value="${product.version}" />
+-->
+	<property name="waffle.version" value="Tomcat5.0" />
 	<property name="waffle.java.version" value="1.6" />
 	<property name="waffle.copyright" value="${copyright.text}" />
 	<property name="waffle.root" value="${basedir}" />
@@ -111,21 +113,6 @@
 		<echo message="See ${waffle.test}/report/index.html" />
 	</target>
 	<target name="test" depends="compile-tests">
-		<mkdir dir="${waffle.test}" />
-		<junit fork="true" newenvironment="true" failureproperty="tests.failed"
-			haltonfailure="no" haltonerror="no" printsummary="on" errorproperty="tests.failed">
-			<batchtest todir="${waffle.test}">
-				<fileset dir="${waffle.test.lib}">
-					<include name="**/*Tests.class" />
-					<exclude name="**/*LoadTests.class" />
-				</fileset>
-			</batchtest>
-			<formatter type="xml" />
-			<classpath refid="waffle.test.classpath" />
-			<jvmarg value="-Demma.coverage.out.file=${waffle.cover}/coverage.emma" />
-		</junit>
-		<antcall target="test-report" />
-		<fail message="Unit Tests failed" if="tests.failed" />
 	</target>
 	<!-- cover -->
 	<property name="emma.dir" value="${thirdparty.dir}/_lib/jar/emma/2.1.5320" />

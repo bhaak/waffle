@@ -18,8 +18,10 @@ import java.security.Principal;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
+import org.apache.coyote.tomcat5.CoyoteRequest;
+import org.apache.coyote.tomcat5.CoyoteResponse;
+import org.apache.catalina.HttpRequest;
+import org.apache.catalina.HttpResponse;
 import org.apache.catalina.deploy.LoginConfig;
 import org.slf4j.LoggerFactory;
 
@@ -54,9 +56,11 @@ public class NegotiateAuthenticator extends WaffleAuthenticatorBase {
 	}
 
 	@Override
-	protected boolean authenticate(Request request, Response response,
+	protected boolean authenticate(HttpRequest httpRequest, HttpResponse httpResponse,
 			LoginConfig loginConfig) {
-
+		CoyoteResponse response = (CoyoteResponse)httpResponse;
+		CoyoteRequest request = (CoyoteRequest)httpRequest;
+		
 		Principal principal = request.getUserPrincipal();
 		AuthorizationHeader authorizationHeader = new AuthorizationHeader(
 				request);

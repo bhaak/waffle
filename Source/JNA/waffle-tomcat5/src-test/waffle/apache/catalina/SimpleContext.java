@@ -25,13 +25,19 @@ import org.apache.catalina.Container;
 import org.apache.catalina.ContainerListener;
 import org.apache.catalina.Context;
 import org.apache.catalina.Loader;
+import org.apache.catalina.Logger;
 import org.apache.catalina.Manager;
 import org.apache.catalina.Pipeline;
 import org.apache.catalina.Realm;
+import org.apache.catalina.Request;
+import org.apache.catalina.Response;
 import org.apache.catalina.Wrapper;
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
 import org.apache.catalina.deploy.ApplicationParameter;
+import org.apache.catalina.deploy.ContextEjb;
+import org.apache.catalina.deploy.ContextEnvironment;
+import org.apache.catalina.deploy.ContextLocalEjb;
+import org.apache.catalina.deploy.ContextResource;
+import org.apache.catalina.deploy.ContextResourceLink;
 import org.apache.catalina.deploy.ErrorPage;
 import org.apache.catalina.deploy.FilterDef;
 import org.apache.catalina.deploy.FilterMap;
@@ -39,7 +45,6 @@ import org.apache.catalina.deploy.LoginConfig;
 import org.apache.catalina.deploy.NamingResources;
 import org.apache.catalina.deploy.SecurityConstraint;
 import org.apache.catalina.util.CharsetMapper;
-import org.apache.commons.logging.Log;
 import org.apache.tomcat.util.http.mapper.Mapper;
 
 /**
@@ -122,11 +127,6 @@ public class SimpleContext implements Context {
 
 	@Override
 	public void addTaglib(String arg0, String arg1) {
-
-	}
-
-	@Override
-	public void addWatchedResource(String arg0) {
 
 	}
 
@@ -266,11 +266,6 @@ public class SimpleContext implements Context {
 	}
 
 	@Override
-	public String[] findWatchedResources() {
-		return new String[0];
-	}
-
-	@Override
 	public boolean findWelcomeFile(String arg0) {
 		return false;
 	}
@@ -350,11 +345,6 @@ public class SimpleContext implements Context {
 		return null;
 	}
 
-	@Override
-	public String getEncodedPath() {
-		return null;
-	}
-
 	public boolean getIgnoreAnnotations() {
 		return false;
 	}
@@ -410,22 +400,12 @@ public class SimpleContext implements Context {
 	}
 
 	@Override
-	public boolean getSwallowOutput() {
-		return false;
-	}
-
-	@Override
 	public boolean getTldNamespaceAware() {
 		return false;
 	}
 
 	@Override
 	public boolean getTldValidation() {
-		return false;
-	}
-
-	@Override
-	public boolean getUseHttpOnly() {
 		return false;
 	}
 
@@ -511,11 +491,6 @@ public class SimpleContext implements Context {
 
 	@Override
 	public void removeTaglib(String arg0) {
-
-	}
-
-	@Override
-	public void removeWatchedResource(String arg0) {
 
 	}
 
@@ -639,22 +614,12 @@ public class SimpleContext implements Context {
 	}
 
 	@Override
-	public void setSwallowOutput(boolean arg0) {
-
-	}
-
-	@Override
 	public void setTldNamespaceAware(boolean arg0) {
 
 	}
 
 	@Override
 	public void setTldValidation(boolean arg0) {
-
-	}
-
-	@Override
-	public void setUseHttpOnly(boolean arg0) {
 
 	}
 
@@ -729,11 +694,6 @@ public class SimpleContext implements Context {
 	}
 
 	@Override
-	public Log getLogger() {
-		return null;
-	}
-
-	@Override
 	public Manager getManager() {
 		return null;
 	}
@@ -745,11 +705,6 @@ public class SimpleContext implements Context {
 
 	@Override
 	public String getName() {
-		return null;
-	}
-
-	@Override
-	public String getObjectName() {
 		return null;
 	}
 
@@ -842,6 +797,123 @@ public class SimpleContext implements Context {
 	@Override
 	public void setResources(DirContext arg0) {
 
+	}
+
+	@Override
+	public Logger getLogger() {
+		return null;
+	}
+
+	@Override
+	public void setLogger(Logger arg0) {
+	}
+
+	@Override
+	public void addEjb(ContextEjb arg0) {
+	}
+
+	@Override
+	public void addEnvironment(ContextEnvironment arg0) {
+	}
+
+	@Override
+	public void addLocalEjb(ContextLocalEjb arg0) {
+	}
+
+	@Override
+	public void addResource(ContextResource arg0) {
+	}
+
+	@Override
+	public void addResourceEnvRef(String arg0, String arg1) {
+	}
+
+	@Override
+	public void addResourceLink(ContextResourceLink arg0) {
+	}
+
+	@Override
+	public ContextEjb findEjb(String arg0) {
+		return null;
+	}
+
+	@Override
+	public ContextEjb[] findEjbs() {
+		return null;
+	}
+
+	@Override
+	public ContextEnvironment findEnvironment(String arg0) {
+		return null;
+	}
+
+	@Override
+	public ContextEnvironment[] findEnvironments() {
+		return null;
+	}
+
+	@Override
+	public ContextLocalEjb findLocalEjb(String arg0) {
+		return null;
+	}
+
+	@Override
+	public ContextLocalEjb[] findLocalEjbs() {
+		return null;
+	}
+
+	@Override
+	public ContextResource findResource(String arg0) {
+		return null;
+	}
+
+	@Override
+	public String findResourceEnvRef(String arg0) {
+		return null;
+	}
+
+	@Override
+	public String[] findResourceEnvRefs() {
+		return null;
+	}
+
+	@Override
+	public ContextResourceLink findResourceLink(String arg0) {
+		return null;
+	}
+
+	@Override
+	public ContextResourceLink[] findResourceLinks() {
+		return null;
+	}
+
+	@Override
+	public ContextResource[] findResources() {
+		return null;
+	}
+
+	@Override
+	public void removeEjb(String arg0) {
+	}
+
+	@Override
+	public void removeEnvironment(String arg0) {
+	}
+
+	@Override
+	public void removeLocalEjb(String arg0) {
+	}
+
+	@Override
+	public void removeResource(String arg0) {
+	}
+
+	@Override
+	public void removeResourceEnvRef(String arg0) {
+	}
+
+	@Override
+	public void removeResourceLink(String arg0) {
 	}
 
 }

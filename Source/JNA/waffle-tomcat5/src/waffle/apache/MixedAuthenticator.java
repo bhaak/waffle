@@ -22,8 +22,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
+import org.apache.coyote.tomcat5.CoyoteRequest;
+import org.apache.coyote.tomcat5.CoyoteResponse;
+import org.apache.catalina.HttpRequest;
+import org.apache.catalina.HttpResponse;
 import org.apache.catalina.deploy.LoginConfig;
 import org.slf4j.LoggerFactory;
 
@@ -58,8 +60,10 @@ public class MixedAuthenticator extends WaffleAuthenticatorBase {
 	}
 
 	@Override
-	protected boolean authenticate(Request request, Response response,
+	protected boolean authenticate(HttpRequest httpRequest, HttpResponse httpResponse,
 			LoginConfig loginConfig) {
+		CoyoteResponse response = (CoyoteResponse)httpResponse;
+		CoyoteRequest request = (CoyoteRequest)httpRequest;
 
 		// realm: fail if no realm is configured
 		if (context == null || context.getRealm() == null) {
@@ -109,7 +113,7 @@ public class MixedAuthenticator extends WaffleAuthenticatorBase {
 		}
 	}
 
-	private boolean negotiate(Request request, Response response,
+	private boolean negotiate(CoyoteRequest request, CoyoteResponse response,
 			AuthorizationHeader authorizationHeader) {
 
 		String securityPackage = authorizationHeader.getSecurityPackage();
@@ -196,7 +200,7 @@ public class MixedAuthenticator extends WaffleAuthenticatorBase {
 		return true;
 	}
 
-	private boolean post(Request request, Response response,
+	private boolean post(CoyoteRequest request, CoyoteResponse response,
 			LoginConfig loginConfig) {
 
 		String username = request.getParameter("j_username");
@@ -243,7 +247,7 @@ public class MixedAuthenticator extends WaffleAuthenticatorBase {
 		return true;
 	}
 
-	private void redirectTo(Request request, Response response, String url) {
+	private void redirectTo(CoyoteRequest request, CoyoteResponse response, String url) {
 		try {
 			_log.debug("redirecting to: " + url);
 			ServletContext servletContext = context.getServletContext();
