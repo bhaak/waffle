@@ -1,7 +1,15 @@
 WAFFLE - Windows Authentication Framework
 =========================================
 
-![waffle](https://github.com/dblock/waffle/raw/master/waffle.jpg)
+This is a backport of Waffle to Tomcat 5.0.x.
+
+I had to support single sign-on for a legacy application on newer Windows
+machines and JCFIS' support stopped at NTLMv1 and Kerberos is the default
+authentication protocol anyway.
+
+Jars can be downloaded from http://bhaak.dyndns.org/waffle/
+
+Original README follows:
 
 WAFFLE is a native Windows Authentication Framework consisting of two C# and Java libraries that perform functions related to Windows authentication, supporting Negotiate, NTLM and Kerberos. Waffle also includes libraries that enable drop-in Windows Single Sign On for popular Java web servers, when running on Windows. While Waffle makes it ridiculously easy to do Windows Authentication in Java, on Windows, Waffle does not work on *nix.
 
